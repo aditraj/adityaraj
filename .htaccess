@@ -1,0 +1,19 @@
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /new_blog/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /new_blog/index.php [L]
+</IfModule>
+Redirect HTTP 404 /http://uptechzsolutions.com/user1/Aerospace.aspx http://uptechzsolutions.com/
+Redirect 301 "http://uptechzsolutions.com/ "http://www.uptechzsolutions.com/
+# END WordPress
+
+#Force www:
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^uptechzsolutions.com [NC]
+RewriteRule ^(.*)$ http://www.uptechzsolutions.com/$1 [L,R=301,NC]
